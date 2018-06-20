@@ -1,0 +1,17 @@
+[package]
+name = "http-server"
+version = "0.1.0"
+authors = ["3for <287494524@qq.com>"]
+
+[dependencies]
+hyper = { git = "https://github.com/cryptape/hyper.git", branch = "reuse_port" }
+
+tokio-core = "0.1"
+tokio-io = "0.1"
+futures = "0.1"
+net2 = "0.2"
+
+jsonrpc_types = { path = "../jsonrpc_types" }
+
+
+[features]
