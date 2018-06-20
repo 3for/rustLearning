@@ -1,4 +1,5 @@
 use futures::sync::oneshot;
+use jsonrpc_types::response::Output;
 
 pub enum TransferType {
     /// http output sender
