@@ -10,6 +10,7 @@ tokio-core = "0.1"
 tokio-io = "0.1"
 futures = "0.1"
 net2 = "0.2"
+ws = "0.7"
 
 jsonrpc_types = { path = "../jsonrpc_types" }
 

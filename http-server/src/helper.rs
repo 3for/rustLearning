@@ -1,11 +1,12 @@
 use futures::sync::oneshot;
 use jsonrpc_types::response::Output;
 
+
 pub enum TransferType {
     /// http output sender
     HTTP((ReqInfo, oneshot::Sender<Output>)),
-    /// websocket output sender
-    WEBSOCKET((ReqInfo, ws::Sender)),
+    /*/// websocket output sender
+    WEBSOCKET((ReqInfo, ws::Sender)),*/
 }
 
 #[derive(Debug, Clone)]
