@@ -123,60 +123,6 @@ rustLearning/fast:
 	$(MAKE) -f CMakeFiles/rustLearning.dir/build.make CMakeFiles/rustLearning.dir/build
 .PHONY : rustLearning/fast
 
-blake2b/src/blake2b.o: blake2b/src/blake2b.c.o
-
-.PHONY : blake2b/src/blake2b.o
-
-# target to build an object file
-blake2b/src/blake2b.c.o:
-	$(MAKE) -f CMakeFiles/rustLearning.dir/build.make CMakeFiles/rustLearning.dir/blake2b/src/blake2b.c.o
-.PHONY : blake2b/src/blake2b.c.o
-
-blake2b/src/blake2b.i: blake2b/src/blake2b.c.i
-
-.PHONY : blake2b/src/blake2b.i
-
-# target to preprocess a source file
-blake2b/src/blake2b.c.i:
-	$(MAKE) -f CMakeFiles/rustLearning.dir/build.make CMakeFiles/rustLearning.dir/blake2b/src/blake2b.c.i
-.PHONY : blake2b/src/blake2b.c.i
-
-blake2b/src/blake2b.s: blake2b/src/blake2b.c.s
-
-.PHONY : blake2b/src/blake2b.s
-
-# target to generate assembly for a file
-blake2b/src/blake2b.c.s:
-	$(MAKE) -f CMakeFiles/rustLearning.dir/build.make CMakeFiles/rustLearning.dir/blake2b/src/blake2b.c.s
-.PHONY : blake2b/src/blake2b.c.s
-
-sha3/src/tinykeccak.o: sha3/src/tinykeccak.c.o
-
-.PHONY : sha3/src/tinykeccak.o
-
-# target to build an object file
-sha3/src/tinykeccak.c.o:
-	$(MAKE) -f CMakeFiles/rustLearning.dir/build.make CMakeFiles/rustLearning.dir/sha3/src/tinykeccak.c.o
-.PHONY : sha3/src/tinykeccak.c.o
-
-sha3/src/tinykeccak.i: sha3/src/tinykeccak.c.i
-
-.PHONY : sha3/src/tinykeccak.i
-
-# target to preprocess a source file
-sha3/src/tinykeccak.c.i:
-	$(MAKE) -f CMakeFiles/rustLearning.dir/build.make CMakeFiles/rustLearning.dir/sha3/src/tinykeccak.c.i
-.PHONY : sha3/src/tinykeccak.c.i
-
-sha3/src/tinykeccak.s: sha3/src/tinykeccak.c.s
-
-.PHONY : sha3/src/tinykeccak.s
-
-# target to generate assembly for a file
-sha3/src/tinykeccak.c.s:
-	$(MAKE) -f CMakeFiles/rustLearning.dir/build.make CMakeFiles/rustLearning.dir/sha3/src/tinykeccak.c.s
-.PHONY : sha3/src/tinykeccak.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +132,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... rustLearning"
-	@echo "... blake2b/src/blake2b.o"
-	@echo "... blake2b/src/blake2b.i"
-	@echo "... blake2b/src/blake2b.s"
-	@echo "... sha3/src/tinykeccak.o"
-	@echo "... sha3/src/tinykeccak.i"
-	@echo "... sha3/src/tinykeccak.s"
 .PHONY : help
 
 

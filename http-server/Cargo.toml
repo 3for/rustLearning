@@ -13,6 +13,8 @@ net2 = "0.2"
 ws = "0.7"
 
 jsonrpc_types = { path = "../jsonrpc_types" }
+util = { path = "../util"}
+libproto = { path = "../libproto"}
 
 
 [features]

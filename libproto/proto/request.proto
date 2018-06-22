@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+import "blockchain.proto";
+
+enum BlockTag {
+    Latest = 0;
+    Earliest = 1;
+}
+
+message Call {
+    bytes from = 1;
+    bytes to = 2;
+    bytes data = 3;
+    string height = 4;
+}
+
+
+message Request {
+    bytes request_id = 1;
+    oneof req {
+        // cita_blockNumber
+        bool block_number = 2;
+        // cita_getBlockByHash
+        string block_by_hash = 3;
+        // cita_getBlockByNumber
+        string block_by_height = 4;
+        // cita_getTransaction
+        bytes transaction = 5;
+
+        uint64 height = 6;
+        // net_peerCount
+        bool peercount = 7;
+        // eth_call
+        Call call = 8;
+
+        string filter = 9;
+        // eth_getTransactionReceipt
+        bytes transaction_receipt = 10;
+        // eth_getTransactionCount
+        string transaction_count = 11;
+        // eth_getCode
+        string code = 12;
+        // eth_getAbi
+        string abi = 13;
+        // eth_newFilter
+        string new_filter = 14;
+        // eth_newBlockFilter
+        bool new_block_filter = 15;
+        // eth_uninstallFilter
+        uint64 uninstall_filter = 16;
+        // eth_getFilterChanges
+        uint64 filter_changes = 17;
+        // eth_getFilterLogs
+        uint64 filter_logs = 18;
+
+        UnverifiedTransaction un_tx = 19;//交易统一到这里了。划分在请求里面
+
+        BatchRequest batch_req = 20;
+        // cita_getTransactionProof
+        bytes transaction_proof = 21;
+        // cita_getMetaData
+        string meta_data = 22;
+        // eth_getBalance
+        string balance = 23;
+    }
+}
+
+message BatchRequest {
+    repeated Request new_tx_requests = 1;
+}

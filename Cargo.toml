@@ -1,5 +1,6 @@
 [workspace]
 members = ["http-server"
 ,"http-client"
-
+,"util"
+,"libproto"
 ]
