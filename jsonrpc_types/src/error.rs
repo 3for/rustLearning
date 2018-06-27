@@ -86,3 +86,39 @@ pub struct Error {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub data: Option<Value>,
 }
+
+impl Error {
+    /// Wraps given `ErrorCode`
+    pub fn new(code: ErrorCode) -> Self {
+        Error {
+            message: code.description(),
+            code: code,
+            data: None,
+        }
+    }
+
+    /// Creates new `InvalidParams`
+    pub fn invalid_params_len() -> Self {
+        Error {
+            code: ErrorCode::InvalidParams,
+            message: "invalid JsonRpc params length".to_owned(),
+            data: None,
+        }
+    }
+
+    /// Creates new `MethodNotFound`
+    pub fn method_not_found() -> Self {
+        Self::new(ErrorCode::MethodNotFound)
+    }
+
+    pub fn server_error<M>(err_code: i64, message: M) -> Self
+        where
+            M: Into<String>,
+    {
+        Error {
+            code: ErrorCode::ServerError(err_code),
+            message: message.into(),
+            data: None,
+        }
+    }
+}

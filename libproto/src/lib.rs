@@ -5,6 +5,8 @@ extern crate tls_api;
 pub mod protos;
 pub use protos::*;
 
+pub mod router;
+
 #[cfg(test)]
 mod tests {
     #[test]

@@ -1,4 +1,4 @@
-/home/zyd/clion-2018.1.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/zyd/rustLearning
+/home/zyd/clion-2018.1.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/zyd/rustLearning
 -- Configuring done
 CMake Error: CMake can not determine linker language for target: rustLearning
 CMake Error: Cannot determine link language for target "rustLearning".

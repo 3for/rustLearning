@@ -6,6 +6,9 @@ extern crate serde;
 extern crate serde_derive;
 extern crate serde_json;
 
+extern crate uuid;
+extern crate libproto;
+
 pub mod method;
 pub mod response;
 pub mod request;
@@ -18,6 +21,8 @@ pub mod bytes;
 pub use self::id::*;
 pub use self::error::*;
 pub use serde_json::Value;
+pub use self::params::*;
+pub use self::request::*;
 
 #[cfg(test)]
 mod tests {

@@ -9,11 +9,17 @@ extern crate futures;
 
 extern crate jsonrpc_types;
 extern crate util;
+#[macro_use]
 extern crate libproto;
 
+extern crate serde_json;
+
+extern crate error;
+extern crate unicase;
 
 mod http_server;
 mod helper;
+mod response;
 
 
 use tokio_core::reactor::{Core, Handle};
@@ -42,8 +48,6 @@ fn main() {
 
     let responses = Arc::new(Mutex::new(HashMap::with_capacity(backlog_capacity)));
     let http_responses = Arc::clone(&responses);
-
-
 
 
     if(true) {

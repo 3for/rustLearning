@@ -3,4 +3,5 @@ members = ["http-server"
 ,"http-client"
 ,"util"
 ,"libproto"
+,"error"
 ]
