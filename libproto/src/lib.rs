@@ -7,6 +7,9 @@ pub use protos::*;
 
 pub mod router;
 
+mod autoimpl;
+pub use autoimpl::{Message, TryFromConvertError, TryIntoConvertError};
+
 #[cfg(test)]
 mod tests {
     #[test]

@@ -295,12 +295,12 @@ fn handle_single(
     let request_id = req.request_id.clone();
     let (tx, rx) = oneshot::channel();
     let topic = select_topic(&call.method);
-    let req_info = (ReqInfo::new(call.jsonrpc, call.id), tx);
+    /*let req_info = (ReqInfo::new(call.jsonrpc, call.id), tx);
     {
         responses
             .lock()
             .insert(request_id, TransferType::HTTP(req_info));
-    }
+    }*///这段代码的作用是什么？zouyudi.tiaoshi.20180629.
     let _ = sender.send((topic, req));
     let headers = headers.clone();
 
