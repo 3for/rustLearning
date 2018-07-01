@@ -1,4 +1,7 @@
 #![feature(extern_prelude)]
+#![feature(try_from)]
+
+
 extern crate hyper;
 
 extern crate tokio_io;
@@ -34,8 +37,6 @@ use tokio_core::reactor::{Core, Handle};
 use tokio_core::net::TcpListener;
 
 
-use std::io;
-use std::net::SocketAddr;
 use std::time::Duration;
 use std::sync::Arc;
 use std::sync::mpsc::{channel};
@@ -52,6 +53,7 @@ use uuid::Uuid;
 use std::sync::mpsc::{ Sender};
 use libproto::Message;
 use libproto::router::{MsgType, RoutingKey, SubModules};
+use std::convert::TryInto;
 
 fn main() {
     let addr = ([127, 0, 0, 1], 3000).into();
@@ -116,7 +118,15 @@ fn main() {
         let tx = tx_relay.clone();
 
         let listener = http_server::listener(&addr, &handle).unwrap();
-        Server::start(core, listener, tx, http_responses, timeout, &allow_origin);
+        //Server::start(core, listener, tx, http_responses, timeout, &allow_origin);
+
+        //以线程方式运行，不堵塞主线程
+        let _ = thread::Builder::new()
+            .name(format!("worker{}", 0))
+            .spawn(move || {
+                Server::start(core, listener, tx, http_responses, timeout, &allow_origin);
+            })
+            .unwrap();
 
     }
 
