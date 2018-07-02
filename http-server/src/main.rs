@@ -64,6 +64,7 @@ fn main() {
         count_per_batch: 30,
         buffer_duration: 30000000,
     };
+    let threads: usize = 2;
 
 
     //used for buffer message
@@ -107,26 +108,23 @@ fn main() {
             }
         });
 
-
-
-        // Create the event loop that will drive this server
-        let mut core = Core::new().unwrap();
-        let handle = core.handle();
-        let timeout = Duration::from_secs(timeout);
-
-        let http_responses = Arc::clone(&http_responses);
-        let tx = tx_relay.clone();
-
-        let listener = http_server::listener(&addr, &handle).unwrap();
-        //Server::start(core, listener, tx, http_responses, timeout, &allow_origin);
-
-        //以线程方式运行，不堵塞主线程
-        let _ = thread::Builder::new()
-            .name(format!("worker{}", 0))
-            .spawn(move || {
-                Server::start(core, listener, tx, http_responses, timeout, &allow_origin);
-            })
-            .unwrap();
+       //以线程方式运行，不堵塞主线程
+        for i in 0..threads {
+            //let addr = addr.clone().parse().unwrap();
+            let tx = tx_relay.clone();
+            let http_responses = Arc::clone(&http_responses);
+            let allow_origin = allow_origin.clone();
+            let _ = thread::Builder::new()
+                .name(format!("worker{}", i))
+                .spawn(move || {
+                    let core = Core::new().unwrap();
+                    let handle = core.handle();
+                    let timeout = Duration::from_secs(timeout);
+                    let listener = http_server::listener(&addr, &handle).unwrap();
+                    Server::start(core, listener, tx, http_responses, timeout, &allow_origin);
+                })
+                .unwrap();
+        }
 
     }
 

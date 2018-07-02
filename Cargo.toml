@@ -4,4 +4,6 @@ members = ["http-server"
 ,"util"
 ,"libproto"
 ,"error"
+,"pubsub"
+,"pubsub_rabbitmq"
 ]

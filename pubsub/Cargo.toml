@@ -1,0 +1,6 @@
+[package]
+name = "pubsub"
+version = "0.1.0"
+authors = ["root <287494524@qq.com>"]
+
+[dependencies]
